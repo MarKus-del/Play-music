@@ -1,30 +1,49 @@
 import type { AppProps } from 'next/app'
-import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import { createGlobalStyle, DefaultTheme, ThemeProvider } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
-  body {
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 
   html, body {
-    width: 100vw;
     height: 100vh;
+    color: ${({ theme }) => theme.colors.text };
   }
+
+  :root {
+    font-size: ${({ theme }) => theme.fontSize};
+  }
+  
 `;
 
-const theme = {
-  colors : {},
-  breakpoints: {},
-  fontSizes: {}
+const theme: DefaultTheme = {
+  colors : {
+    detach: "#A29BFE",
+    text: '#636E72',
+    white: "#FFFFFF",
+    black: "#000000",
+    backgroundContainerMusic: '#DFE6E9',
+    playMusic: "#55efc4",
+    playDisable: "#00b894",
+    borderColor: '#C4C4C4'
+  },
+  breakpoints: {
+    small: "780",
+    medium: "1024",
+    large: "1444",
+  },
+  fontSize: "16px",
 }
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <GlobalStyles/>
+      
       <ThemeProvider theme={theme}>
+        <GlobalStyles/>
         <Component {...pageProps} />
       </ThemeProvider>
     </>
