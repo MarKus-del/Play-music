@@ -1,49 +1,14 @@
 import type { AppProps } from 'next/app'
-import { createGlobalStyle, DefaultTheme, ThemeProvider } from 'styled-components'
-
-const GlobalStyles = createGlobalStyle`
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  html, body {
-    height: 100vh;
-    color: ${({ theme }) => theme.colors.text };
-  }
-
-  :root {
-    font-size: ${({ theme }) => theme.fontSize};
-  }
-  
-`;
-
-const theme: DefaultTheme = {
-  colors : {
-    detach: "#A29BFE",
-    text: '#636E72',
-    white: "#FFFFFF",
-    black: "#000000",
-    backgroundContainerMusic: '#DFE6E9',
-    playMusic: "#55efc4",
-    playDisable: "#00b894",
-    borderColor: '#C4C4C4'
-  },
-  breakpoints: {
-    small: "780",
-    medium: "1024",
-    large: "1444",
-  },
-  fontSize: "16px",
-}
+import { ThemeProvider } from 'styled-components'
+import MenuLateral from '../components/MenuLateral';
+import { GlobalStyles, theme } from '../styles/global';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      
       <ThemeProvider theme={theme}>
         <GlobalStyles/>
+        <MenuLateral />
         <Component {...pageProps} />
       </ThemeProvider>
     </>
