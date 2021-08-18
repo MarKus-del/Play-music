@@ -1,10 +1,9 @@
 import type { NextPage } from 'next';
+import MenuLateral from '../components/MenuLateral';
 
 const Home: NextPage = () => {
   return (
-    <div>
-      <h1>Play Music</h1>
-    </div>
+      <MenuLateral />
   );
 };
 
