@@ -20,3 +20,4 @@ o web app deverá ter as seguintes funcionalidades:
 - as músicas poderam ser curtidas e descurtidas;
 - as músicas curtidas deveram aperecer em uma página especificas de músicas favoritas.
 
+Link do prototipo de design no figma: https://www.figma.com/file/fid7g1TR6fj6DNgGL8AkFp/Untitled?node-id=0%3A1
