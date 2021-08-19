@@ -1,10 +1,10 @@
 import { NextPage } from "next";
 import Image from "next/image";
 import { FaHeart, FaPlay, FaSearch } from "react-icons/fa";
+import Header from "../components/Header";
 import {
   Search,
   Container,
-  Header,
   ListMusic,
   MusicItem,
 } from "../styles/index";
@@ -28,9 +28,7 @@ const Home: NextPage = () => {
         </button>
       </Search>
 
-      <Header>
-        <h1>TOP músicas</h1>
-      </Header>
+      <Header />
 
       <ListMusic>
         <MusicItem>
