@@ -1,11 +1,16 @@
-import { NextPage } from "next";
-import Image from "next/image";
+import { GetServerSideProps, NextPage } from "next";
 import { FaSearch } from "react-icons/fa";
 import Header from "../components/Header";
 import MusicItem from "../components/MusicItem";
+import { api } from "../services/api";
+import { Track } from "../services/types";
 import { Search, Container, ListMusic } from "../styles/index";
 
-const Home: NextPage = () => {
+type ResponseData = {
+  data: Track[];
+};
+
+const Home: NextPage<ResponseData> = ({ data }) => {
   return (
     <Container>
       <Search>
@@ -18,113 +23,26 @@ const Home: NextPage = () => {
       <Header />
 
       <ListMusic>
-        <MusicItem 
-          track={{
-            id: 12,
-            title: 'dadad',
-            duration: 120,
-            preview: "",
-            linkToDeezer: "https://www.deezer.com/track/1391349252",
-            thumbnail: 'https://api.deezer.com/artist/135512622/image' 
-          }}
-        />
-        <MusicItem 
-          track={{
-            id: 12,
-            title: 'dadad',
-            duration: 120,
-            preview: "",
-            linkToDeezer: "https://www.deezer.com/track/1391349252",
-            thumbnail: 'https://api.deezer.com/artist/135512622/image' 
-          }}
-        />
-        <MusicItem 
-          track={{
-            id: 12,
-            title: 'dadad',
-            duration: 120,
-            preview: "",
-            linkToDeezer: "https://www.deezer.com/track/1391349252",
-            thumbnail: 'https://api.deezer.com/artist/135512622/image' 
-          }}
-        />
-        <MusicItem 
-          track={{
-            id: 12,
-            title: 'dadad',
-            duration: 120,
-            preview: "",
-            linkToDeezer: "https://www.deezer.com/track/1391349252",
-            thumbnail: 'https://api.deezer.com/artist/135512622/image' 
-          }}
-          
-        />
-
-<MusicItem 
-          track={{
-            id: 12,
-            title: 'dadad',
-            duration: 120,
-            preview: "",
-            linkToDeezer: "https://www.deezer.com/track/1391349252",
-            thumbnail: 'https://api.deezer.com/artist/135512622/image' 
-          }}
-        />
-        <MusicItem 
-          track={{
-            id: 12,
-            title: 'dadad',
-            duration: 120,
-            preview: "",
-            linkToDeezer: "https://www.deezer.com/track/1391349252",
-            thumbnail: 'https://api.deezer.com/artist/135512622/image' 
-          }}
-        />
-        <MusicItem 
-          track={{
-            id: 12,
-            title: 'dadad',
-            duration: 120,
-            preview: "",
-            linkToDeezer: "https://www.deezer.com/track/1391349252",
-            thumbnail: 'https://api.deezer.com/artist/135512622/image' 
-          }}
-        />
-        <MusicItem 
-          track={{
-            id: 12,
-            title: 'dadad',
-            duration: 120,
-            preview: "",
-            linkToDeezer: "https://www.deezer.com/track/1391349252",
-            thumbnail: 'https://api.deezer.com/artist/135512622/image' 
-          }}
-          
-        />
-        <MusicItem 
-          track={{
-            id: 12,
-            title: 'dadad',
-            duration: 120,
-            preview: "",
-            linkToDeezer: "https://www.deezer.com/track/1391349252",
-            thumbnail: 'https://api.deezer.com/artist/135512622/image' 
-          }}
-        />
-        <MusicItem 
-          track={{
-            id: 12,
-            title: 'dadad',
-            duration: 120,
-            preview: "",
-            linkToDeezer: "https://www.deezer.com/track/1391349252",
-            thumbnail: 'https://api.deezer.com/artist/135512622/image' 
-          }}
-          
-        />
+        {data.map((track) => (
+          <MusicItem 
+            key={track.id}
+            track={track}
+          />
+        ))}
       </ListMusic>
     </Container>
   );
 };
 
 export default Home;
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const response = await api.get("/chart/O/tracks");
+  const { data }: ResponseData = response.data;  
+
+  return {
+    props: {
+      data
+    }
+  }
+};

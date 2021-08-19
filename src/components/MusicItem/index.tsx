@@ -1,16 +1,10 @@
 import Image from "next/image";
 import { MusicContainer, InfoMusic, FeaturesBox } from "./styles";
 import { FaHeart, FaPlay } from "react-icons/fa";
+import { Track } from "../../services/types";
 
 type MusicItemProps = {
-  track: {
-    id: number;
-    title: string;
-    thumbnail: string;
-    linkToDeezer: string;
-    duration: number;
-    preview: string;
-  }
+  track: Track
 }
 
 export default function MusicItem({ track }: MusicItemProps) {
@@ -20,7 +14,7 @@ export default function MusicItem({ track }: MusicItemProps) {
         className="img"
         width={90}
         height={90}
-        src={track.thumbnail}
+        src={track.artist.picture}
       />
 
       <InfoMusic>
@@ -28,7 +22,7 @@ export default function MusicItem({ track }: MusicItemProps) {
         <span>By <b>authors</b></span>
         <span>Track</span>
 
-        <a className="more"  href={track.linkToDeezer}>ver mais</a>
+        <a className="more"  href={track.link}>ver mais</a>
       </InfoMusic>
 
       <FeaturesBox>
