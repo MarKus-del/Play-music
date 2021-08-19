@@ -1,16 +1,24 @@
-import { GetServerSideProps, NextPage } from "next";
+import { NextPage } from "next";
 import { FaSearch } from "react-icons/fa";
+import { useSelector } from "react-redux";
 import Header from "../components/Header";
 import MusicItem from "../components/MusicItem";
 import { api } from "../services/api";
 import { Track } from "../services/types";
+import { storeWrapper } from "../store";
+import { load } from "../store/module/music/actions";
+import { RootState } from "../store/module/rootReducer";
 import { Search, Container, ListMusic } from "../styles/index";
 
 type ResponseData = {
   data: Track[];
 };
 
-const Home: NextPage<ResponseData> = ({ data }) => {
+const Home: NextPage<ResponseData> = () => {
+  const { tracks } = useSelector(
+    (state: { music: RootState }) => state.music.music
+  );
+
   return (
     <Container>
       <Search>
@@ -23,11 +31,8 @@ const Home: NextPage<ResponseData> = ({ data }) => {
       <Header />
 
       <ListMusic>
-        {data.map((track) => (
-          <MusicItem 
-            key={track.id}
-            track={track}
-          />
+        {tracks.map((track) => (
+          <MusicItem key={track.id} track={track} />
         ))}
       </ListMusic>
     </Container>
@@ -36,13 +41,14 @@ const Home: NextPage<ResponseData> = ({ data }) => {
 
 export default Home;
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const response = await api.get("/chart/O/tracks");
-  const { data }: ResponseData = response.data;  
+export const getServerSideProps = storeWrapper.getServerSideProps(
+  (store) => async () => {
+    const response = await api.get("/chart/O/tracks");
+    const { data }: ResponseData = response.data;
 
-  return {
-    props: {
-      data
-    }
+    store.dispatch(load(data));
+    return {
+      props: [],
+    };
   }
-};
+);
