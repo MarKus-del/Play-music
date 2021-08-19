@@ -28,6 +28,7 @@ export const theme: DefaultTheme = {
     playMusic: "#55efc4",
     playDisable: "#00b894",
     borderColor: "#C4C4C4",
+    linkHover: "#551A8B"
   },
   breakpoints: {
     small: "780",

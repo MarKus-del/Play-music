@@ -11,6 +11,7 @@ declare module 'styled-components' {
         playMusic: string,
         playDisable: string,
         borderColor: string,
+        linkHover: string;
       },
       breakpoints: {
         small: string,
