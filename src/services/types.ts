@@ -11,9 +11,8 @@ export type Track = {
 export type Album = {
     id: number;
     title: string;
-    link: string;
+    tracklist: string;
     cover: string;
-    duration: number;
 }
 
 export type Artist = {
@@ -21,4 +20,5 @@ export type Artist = {
     name: string;
     link: string;
     picture: string;
+    tracklist: string;
 }
