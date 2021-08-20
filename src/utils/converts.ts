@@ -1,4 +1,29 @@
-import { Album, Artist, Track } from "./types";
+import { AxiosResponse } from "axios";
+import { Album, Artist, Track } from "../services/types";
+
+type RequestSearchDeezer = {
+  data: Track[];
+  next?: string | null;
+  total: number;
+  prev?: string | null;
+};
+
+export function convertAxiosResponseToStoreState(
+  data: RequestSearchDeezer
+): RequestSearchDeezer {
+  const { data: result, total, next, prev } = data;
+
+  const filter: Track[] = result.map((track) =>
+    convertResponseTrackToEntityTrack(track)
+  );
+
+  return {
+    data: filter,
+    total,
+    next: next ? next : null,
+    prev: prev ? prev : null,
+  };
+}
 
 export function convertResponseTrackToEntityTrack(responseTrack: Track): Track {
   return {
