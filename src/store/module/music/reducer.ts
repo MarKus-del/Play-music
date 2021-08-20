@@ -10,34 +10,26 @@ const initialState: State = {
 
 function reducer(state = initialState, action: ActionTypes) {
   switch (action.type) {
-    case HYDRATE:
-      return {
-        ...state,
-        ...action.payload,
-      };
     case Types.LOAD: {
-      console.log("Hello from server side");
-      console.log(state);
-
-      const newState = {
-        ...state,
-        tracks: action.payload.tracks,
-      };
-      console.log(newState);
+      const newState = { ...state };
+      newState.tracks = action.payload.tracks;
 
       return newState;
     }
-    case Types.SEARCH_REQUEST:
-      return {
-        ...state,
-        isLoading: true,
-      };
-    case Types.UPDATE:
-      return {
-        ...state,
-        tracks: action.payload.tracks,
-        totalPageList: action.payload.totalPageList,
-      };
+    case Types.SEARCH_REQUEST: {
+      const newState = { ...state };
+      newState.isLoading = true;
+      return newState;
+    }
+
+    case Types.UPDATE: {
+      const newState = { ...state };
+      newState.tracks = action.payload.tracks;
+      newState.isLoading = false;
+      newState.totalPageList = action.payload.totalPageList;
+
+      return newState;
+    }
     default:
       return state;
   }

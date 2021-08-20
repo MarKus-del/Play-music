@@ -3,7 +3,7 @@ import { Track } from "../../../services/types";
 
 export type ActionTypes = {
   type: Types | typeof HYDRATE;
-  payload: Payload;
+  payload: Payload & HydratePayload;
 };
 
 export enum Types {
@@ -23,4 +23,8 @@ export type Payload = {
   tracks: Track[];
   totalPageList: number;
   currentPage: number;
+};
+
+export type HydratePayload = {
+  music?: Payload;
 };
