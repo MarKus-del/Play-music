@@ -17,12 +17,14 @@ export type State = {
   isLoading: boolean;
   totalPageList: number;
   currentPage: number;
+  searchName: string;
 };
 
 export type Payload = {
   tracks: Track[];
   totalPageList: number;
   currentPage: number;
+  searchName: string;
 };
 
 export type HydratePayload = {

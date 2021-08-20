@@ -1,4 +1,3 @@
-import { HYDRATE } from "next-redux-wrapper";
 import { State, Types, ActionTypes } from "./types";
 
 const initialState: State = {
@@ -6,6 +5,7 @@ const initialState: State = {
   isLoading: false,
   currentPage: 1,
   totalPageList: 1,
+  searchName: "Top Músicas"
 };
 
 function reducer(state = initialState, action: ActionTypes) {
@@ -27,6 +27,7 @@ function reducer(state = initialState, action: ActionTypes) {
       newState.tracks = action.payload.tracks;
       newState.isLoading = false;
       newState.totalPageList = action.payload.totalPageList;
+      newState.searchName = action.payload.searchName
 
       return newState;
     }
