@@ -25,6 +25,7 @@ function reducer(state = initialState, action: ActionTypes) {
     case Types.UPDATE: {
       const newState = { ...state };
       newState.tracks = action.payload.tracks;
+      newState.currentPage = action.payload.currentPage
       newState.isLoading = false;
       newState.totalPageList = action.payload.totalPageList;
       newState.searchName = action.payload.searchName
