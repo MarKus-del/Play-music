@@ -9,6 +9,7 @@ export const GlobalStyles = createGlobalStyle`
 
 html, body, #__next {
   height: 100vh;
+  width: 100%;
   color: ${({ theme }) => theme.colors.text};
   display: flex;
 }

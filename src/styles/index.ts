@@ -2,10 +2,12 @@ import styled from "styled-components";
 
 export const Container = styled.main`
   width: 75vw;
+  max-width: 1500px;
   padding: 1rem;
   height: 100vh;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
 `;
 
 export const Search = styled.div`
@@ -23,7 +25,6 @@ export const Search = styled.div`
     border: 2px solid ${({ theme }) => theme.colors.text};
     outline: none;
 
-
     &:hover {
       border: 2px solid black;
     }
@@ -36,11 +37,11 @@ export const Search = styled.div`
     border-radius: 0 1rem 1rem 0;
     border: 2px solid ${({ theme }) => theme.colors.text};
     cursor: pointer;
-		font-size: 1.5rem;
-		color: ${({ theme }) => theme.colors.detach};
-		display: flex;
-		justify-content: center;
-		align-items: center;
+    font-size: 1.5rem;
+    color: ${({ theme }) => theme.colors.detach};
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &:hover {
       border: 2px solid black;
@@ -54,57 +55,57 @@ export const ListMusic = styled.ul`
 
   display: grid;
   grid-template-columns: 1fr 1fr;
-	grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   grid-gap: 1rem;
 `;
 
-export const MusicItem = styled.li`
-  list-style: none;
-  width: 100%;
-  height: 6rem;
-  background-color: ${({ theme }) => theme.colors.backgroundContainerMusic};
-  border-radius: 1rem;
-  display: grid;
-  grid-template-columns: 100px 2fr 1fr;
-  grid-template-areas: "photo info play";
+export const Pagination = styled.div`
+  width: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
-  .img {
-    grid-area: photo;
-    background-color: red;
-    border-radius: 1rem 0 0 1rem;
+  span {
+    margin-top: 0.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 1rem;
   }
+`;
 
-  .info {
-    grid-area: info;
+export const PaginationButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    padding: 0.3rem;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    padding: 0.5rem;
+    align-items: center;
+    margin: 0.5rem;
+    border: none;
+    cursor: pointer;
+    color: ${({ theme }) => theme.colors.text};
+    border-radius: 1rem;
 
-    .more {
-      cursor: pointer;
-			font-weight: 800;
-			font-size: 1.5rem;
+    &:disabled {
+      cursor: auto;
+    }
+
+    &:not(:disabled):hover {
+      font-size: 1rem;
+      background-color: ${({ theme }) => theme.colors.text};
+      color: ${({ theme }) => theme.colors.white};
     }
   }
 
-  .play {
-    grid-area: play;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    button {
-			background: none;
-			border: none;
-      margin-right: 1rem;
-      font-size: 3rem;
-      color: ${({ theme }) => theme.colors.detach};
-			cursor: pointer;
-			
-			&:hover {
-				color: ${({ theme }) => theme.colors.playMusic};
-			}
-    }
+  .page-index {
+    margin: 0.5rem;
+    color: ${({ theme }) => theme.colors.detach};
+    font-weight: 800;
+    font-size: 1.5rem;
+    background: none;
   }
 `;
