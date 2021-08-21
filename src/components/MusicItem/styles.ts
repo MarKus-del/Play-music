@@ -59,11 +59,7 @@ export const InfoMusic = styled.div`
   }
 `;
 
-type FeaturesBoxProps = {
-  readonly isPlaying: boolean;
-};
-
-export const FeaturesBox = styled.div<FeaturesBoxProps>`
+export const FeaturesBox = styled.div`
   grid-area: play;
   display: flex;
   justify-content: space-between;
@@ -86,4 +82,13 @@ export const FeaturesBox = styled.div<FeaturesBoxProps>`
   .is-playing {
     color: ${({ theme }) => theme.colors.playMusic};
   }
+  
+  .deslike {
+    color: ${({ theme }) => theme.colors.playMusic};
+
+    &:hover {
+      color: ${({ theme }) => theme.colors.playDisable};
+    }
+  }
+
 `;
