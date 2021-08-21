@@ -15,6 +15,7 @@ import { RootState } from "../../store/module/rootReducer";
 import { useRef } from "react";
 import { useEffect } from "react";
 import { play, stop } from "../../store/module/miniplayer/actions";
+import { convertDuration } from "../../utils/converts";
 
 export default function MenuLateral() {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -84,6 +85,9 @@ export default function MenuLateral() {
         <div className="info">
           <span>{track.title}</span>
           <span>{track.artist.name}</span>
+          <span>
+          Duração: {convertDuration(track.duration)}
+        </span>
         </div>
 
         <div className="play">

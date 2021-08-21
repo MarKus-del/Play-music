@@ -8,9 +8,11 @@ export const ContainerMenu = styled.aside`
   background-color: "#636e72";
   display: flex;
   flex-direction: column;
+  position: fixed;
 `;
 
 export const HeaderMenu = styled.header`
+
   margin-top: 1rem;
   display: flex;
   align-items: center;

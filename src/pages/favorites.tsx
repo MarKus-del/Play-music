@@ -25,6 +25,8 @@ export default function Favorites() {
   ;
   return (
     <Container>
+
+      <h1>Favoritos</h1>
       <ListMusic>
         { favoritesTracks.length <= 0 ? (<h1>Sua lista está vazia</h1>) : (
           favoritesTracks.map((track) => (

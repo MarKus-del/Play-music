@@ -8,6 +8,12 @@ type RequestSearchDeezer = {
   prev?: string | null;
 };
 
+export function convertDuration(duration: number): string {
+  const seconds = (duration % 60);
+  const minutes = Math.floor(duration / 60);
+  return `${minutes}:${seconds}`;
+}
+
 export function convertAxiosResponseToStoreState(
   data: RequestSearchDeezer
 ): RequestSearchDeezer {
@@ -57,3 +63,5 @@ export function convertResponseAlbumToEntityAlbum(responseAlbum: Album): Album {
     tracklist: responseAlbum.tracklist,
   };
 }
+
+

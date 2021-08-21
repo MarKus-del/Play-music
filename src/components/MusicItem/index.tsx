@@ -11,6 +11,7 @@ import {
 } from "../../store/module/favorites/actions";
 import { useEffect } from "react";
 import { useState } from "react";
+import { convertDuration } from "../../utils/converts";
 
 type MusicItemProps = {
   track: Track;
@@ -77,6 +78,10 @@ export default function MusicItem({ track }: MusicItemProps) {
               {track.artist.name}
             </a>
           </b>
+        </span>
+
+        <span>
+          Duração: {convertDuration(track.duration)}
         </span>
 
         <a className="more" href={track.link}>
