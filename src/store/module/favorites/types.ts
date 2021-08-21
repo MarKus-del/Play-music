@@ -7,14 +7,12 @@ export type ActionTypes = {
 };
 
 export enum Types {
-  LOAD = "miniplayer/LOAD",
-  PLAY = "miniplayer/PLAY",
-  STOP = "miniplayer/STOP",
+  ADD = "favorites/ADD",
+  REMOVE = "favorites/REMOVE",
 }
 
 export type State = {
-  track: Track;
-  isPlaying: boolean;
+favoritesTracks: Track[];
 };
 
 export type Payload = {
@@ -22,5 +20,5 @@ export type Payload = {
 };
 
 export type HydratePayload = {
-  miniplayer?: Payload;
+  favorites?: Payload;
 };

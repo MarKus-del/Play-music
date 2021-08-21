@@ -1,15 +1,25 @@
 import { Context, createWrapper, HYDRATE, MakeStore } from "next-redux-wrapper";
-import { createStore, Store } from "redux";
+import { createStore, EmptyObject, Store } from "redux";
 import { ActionTypes as MusicActions } from "./module/music/types";
 import { ActionTypes as MiniPlayerActions } from "./module/miniplayer/types";
-import { reducers } from "./module/rootReducer";
+import { ActionTypes as FavoritesActions } from "./module/favorites/types";
+import { reducers, RootState } from "./module/rootReducer";
 
-const reducer = (state: any, action: MusicActions & MiniPlayerActions) => {
+type Actions =
+  & MusicActions
+  & MiniPlayerActions
+  & FavoritesActions;
+
+const reducer = (state: any, action: Actions) => {
   if (action.type === HYDRATE) {
-    const nextState = { ...action.payload };
+    const nextState = {
+      ...action.payload
+    };
+    console.log(action.payload);
+    console.log(state);
     
-    if (nextState.music || nextState.miniplay) return { ...nextState };
-
+    if (nextState.music && nextState.favorites && nextState.miniplayer) return nextState;
+    
     return state;
   } else {
     return reducers(state, action);
