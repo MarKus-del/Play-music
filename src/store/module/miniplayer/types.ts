@@ -1,7 +1,7 @@
 import { HYDRATE } from "next-redux-wrapper";
 import { Track } from "../../../services/types";
 
-export type ActionTypes = {
+export type MiniPlayerActionTypes = {
   type: Types | typeof HYDRATE;
   payload: Payload & HydratePayload;
 };

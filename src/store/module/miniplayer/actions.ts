@@ -1,5 +1,5 @@
 import { Track } from "../../../services/types"
-import { ActionTypes, Types } from "./types"
+import { MiniPlayerActionTypes, Types } from "./types"
 
 export function firstTrack(track: Track) {
     return {
@@ -8,7 +8,7 @@ export function firstTrack(track: Track) {
     }
 }
 
-export function play(track: Track): ActionTypes {
+export function play(track: Track) {
     return {
         type: Types.PLAY,
         payload: { track }

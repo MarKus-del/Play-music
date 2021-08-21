@@ -1,6 +1,6 @@
-import { ActionTypes, State, Types } from "./types";
+import { MiniPlayerActionTypes, State, Types } from "./types";
 
-const initialState: State = {
+export const miniplayerInitialState: State = {
   track: {
     id: 0,
     title: "Nome da musica",
@@ -24,9 +24,12 @@ const initialState: State = {
   isPlaying: false,
 };
 
-export default function reducer(state = initialState, action: ActionTypes) {
+export default function reducer(state = miniplayerInitialState, action: MiniPlayerActionTypes) {
   switch (action.type) {
     case Types.LOAD: {
+      const { track } = action.payload;
+      if (!track) return state;
+
       const newState = { ...state };
       newState.track = action.payload.track;
       return newState;
