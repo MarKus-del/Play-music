@@ -1,10 +1,10 @@
-import { ActionTypes, Types, State } from "./types";
+import { FavoritesActionTypes, Types, State } from "./types";
 
-const initialState: State = {
+export const favoritesInitialState: State = {
   favoritesTracks: [],
 };
 
-export default function reducers(state = initialState, action: ActionTypes) {
+export default function reducers(state = favoritesInitialState, action: FavoritesActionTypes) {
   switch (action.type) {
     case Types.ADD: {
       const newState = { ...state };
