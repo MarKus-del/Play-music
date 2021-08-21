@@ -21,20 +21,33 @@ export const InfoMusic = styled.div`
   color: ${({ theme }) => theme.colors.black};
 
   grid-area: info;
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 0.5rem;
+  justify-content: space-evenly;
+  padding-left: 0.5rem;
+  
+  
+  span {
+    height: 2rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
 
-  b {
+  a {
     color: ${({ theme }) => theme.colors.text};
     text-transform: capitalize;
+  }
+
+  a:hover {
+    color: black;
+    text-decoration: underline;
+    color: ${({ theme }) => theme.colors.linkHover};
   }
 
   .more {
     cursor: pointer;
     font-weight: 800;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-decoration: none;
     color: ${({ theme }) => theme.colors.black};
   }
@@ -46,7 +59,11 @@ export const InfoMusic = styled.div`
   }
 `;
 
-export const FeaturesBox = styled.div`
+type FeaturesBoxProps = {
+  readonly isPlaying: boolean;
+};
+
+export const FeaturesBox = styled.div<FeaturesBoxProps>`
   grid-area: play;
   display: flex;
   justify-content: space-between;
@@ -58,10 +75,15 @@ export const FeaturesBox = styled.div`
     margin-right: 1rem;
     font-size: 3rem;
     color: ${({ theme }) => theme.colors.detach};
+
     cursor: pointer;
 
     &:hover {
       color: ${({ theme }) => theme.colors.playMusic};
     }
+  }
+
+  .is-playing {
+    color: ${({ theme }) => theme.colors.playMusic};
   }
 `;

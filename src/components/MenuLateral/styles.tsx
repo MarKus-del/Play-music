@@ -96,6 +96,7 @@ export const FooterPlay = styled.section`
   .play button {
     border-radius: 1rem;
     border: none;
+    background: none;
 
     cursor: pointer;
     color: ${({ theme }) => theme.colors.playMusic};
@@ -109,7 +110,7 @@ export const FooterPlay = styled.section`
     }
 
     .icon {
-      font-size: 4rem;
+      font-size: 2rem;
       color: inherit;
     }
   }

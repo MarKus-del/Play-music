@@ -15,21 +15,14 @@ import Header from "../components/Header";
 import MusicItem from "../components/MusicItem";
 import { Container, ListMusic } from "../styles/index";
 import InputSearch from "../components/InputSearch";
+import { firstTrack } from "../store/module/miniplayer/actions";
 
 type ResponseData = {
   data: Track[];
 };
 
-type RequestSearchDeezer = {
-  data: Track[];
-  next?: string | null;
-  total: number;
-  prev?: string | null;
-};
-
 const Home: NextPage<ResponseData> = () => {
   const { tracks, isLoading } = useSelector((state: RootState) => state.music);
-
   return (
     <Container>
       <InputSearch />
@@ -64,6 +57,7 @@ export const getServerSideProps = storeWrapper.getServerSideProps(
       convertResponseTrackToEntityTrack(track)
     );
     store.dispatch(load(topTracks));
+    store.dispatch(firstTrack(topTracks[0]));
 
     return {
       props: [],
