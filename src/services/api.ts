@@ -5,5 +5,5 @@ export const apiNext = axios.create({
 });
 
 export const apiFront = axios.create({
-  baseURL: "http://172.24.22.247:3000/api",
+  baseURL: "http://192.168.150.86:3000/api",
 });

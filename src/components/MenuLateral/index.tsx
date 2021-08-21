@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
   ContainerMenu,
   HeaderMenu,
@@ -48,12 +49,16 @@ export default function MenuLateral() {
       <Navigation>
         <div className="container-link">
           <BiBookHeart className="icon" />
-          <LinkTo href="">Favoritos</LinkTo>
+          <Link href="/favorites" passHref>
+            <LinkTo>Favoritos</LinkTo>
+          </Link>
         </div>
 
         <div className="container-link">
           <BiMusic className="icon" />
-          <LinkTo href="">Músicas</LinkTo>
+          <Link href="/" passHref>
+            <LinkTo href="">Músicas</LinkTo>
+          </Link>
         </div>
 
         {/* <div className="container-link">

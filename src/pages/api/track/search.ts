@@ -15,7 +15,6 @@ export default async function handleSearch(
   res: NextApiResponse<RequestSearchDeezer>
 ) {
   const { name, index } = req.query;
-  console.log("valor do index: " + (+index));
   
   const { data }: AxiosResponse<RequestSearchDeezer> = await apiNext.get(
     `https://api.deezer.com/search/track`,
@@ -27,9 +26,6 @@ export default async function handleSearch(
       },
     }
   );
-
-  console.log(data.data[0]);
-  
 
   return res.json(data);
 }

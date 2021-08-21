@@ -3,7 +3,7 @@ import { AxiosResponse } from "axios";
 import { useSelector } from "react-redux";
 
 import { apiNext } from "../services/api";
-import { storeWrapper } from "../store";
+import { initializeStore } from "../store";
 import { Track } from "../services/types";
 import { load, update, searchRequest } from "../store/module/music/actions";
 import { RootState } from "../store/module/rootReducer";
@@ -47,8 +47,10 @@ type DeezerApiTopTracks = {
   total: number;
 };
 
-export const getServerSideProps = storeWrapper.getServerSideProps(
-  (store) => async () => {
+export const getServerSideProps = async () => {
+  const reduxStore = initializeStore();
+
+  const { dispatch } = reduxStore;
     const { data }: AxiosResponse<DeezerApiTopTracks> = await apiNext.get(
       `/chart/O/tracks`
     );
@@ -56,11 +58,13 @@ export const getServerSideProps = storeWrapper.getServerSideProps(
     const topTracks: Track[] = data.data.map((track) =>
       convertResponseTrackToEntityTrack(track)
     );
-    store.dispatch(load(topTracks));
-    store.dispatch(firstTrack(topTracks[0]));
+
+    dispatch(load(topTracks));
+    dispatch(firstTrack(topTracks[0]));
 
     return {
-      props: [],
-    };
-  }
-);
+      props: {
+        initialReduxState: reduxStore.getState()
+      }
+    }
+}
