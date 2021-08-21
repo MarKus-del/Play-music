@@ -1,6 +1,6 @@
-import { State, Types, ActionTypes } from "./types";
+import { State, Types, MusicActionTypes } from "./types";
 
-const initialState: State = {
+export const musicInitialState: State = {
   tracks: [],
   isLoading: false,
   currentPage: 1,
@@ -8,7 +8,7 @@ const initialState: State = {
   searchName: "Top Músicas"
 };
 
-function reducer(state = initialState, action: ActionTypes) {
+function reducer(state = musicInitialState, action: MusicActionTypes) {
   switch (action.type) {
     case Types.LOAD: {
       const newState = { ...state };

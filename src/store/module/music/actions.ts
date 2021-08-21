@@ -1,5 +1,5 @@
 import { Track } from "../../../services/types";
-import { Payload, Types } from "./types";
+import { MusicActionTypes, Payload, Types } from "./types";
 
 export const load = (tracks: Track[]) => {
   return {

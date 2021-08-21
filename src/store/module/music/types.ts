@@ -1,9 +1,9 @@
 import { HYDRATE } from "next-redux-wrapper";
 import { Track } from "../../../services/types";
 
-export type ActionTypes = {
-  type: Types | typeof HYDRATE;
-  payload: Payload & HydratePayload;
+export type MusicActionTypes = {
+  type: Types;
+  payload: Payload | { tracks: Track[] };
 };
 
 export enum Types {
@@ -25,8 +25,4 @@ export type Payload = {
   totalPageList: number;
   currentPage: number;
   searchName: string;
-};
-
-export type HydratePayload = {
-  music?: Payload;
 };
