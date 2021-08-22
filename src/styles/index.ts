@@ -15,6 +15,14 @@ export const Container = styled.main`
     max-height: 75vh;
     overflow-y: scroll;
   }
+
+  .container-options {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
 `;
 
 export const ListMusic = styled.ul`

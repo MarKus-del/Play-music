@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { MusicContainer, InfoMusic, FeaturesBox } from "./styles";
-import { FaHeart, FaHeartBroken, FaPlay, FaPause } from "react-icons/fa";
+import { FaHeart, FaRegHeart, FaPlay, FaPause } from "react-icons/fa";
 import { Track } from "../../services/types";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/module/rootReducer";
@@ -92,11 +92,11 @@ export default function MusicItem({ track }: MusicItemProps) {
       <FeaturesBox>
         {favoritesTracks.filter(({ id }) => id === track.id).length > 0 ? (
           <button className="deslike" onClick={deslike}>
-            <FaHeartBroken />
+            <FaHeart />
           </button>
         ) : (
           <button onClick={like}>
-            <FaHeart />
+            <FaRegHeart />
           </button>
         )}
 

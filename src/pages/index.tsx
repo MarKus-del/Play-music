@@ -1,11 +1,11 @@
-import { GetServerSideProps, GetStaticProps, NextPage } from "next";
+import { GetServerSideProps, NextPage } from "next";
 import { AxiosResponse } from "axios";
 import { useSelector } from "react-redux";
 
 import { apiNext } from "../services/api";
 import { initializeStore } from "../store";
 import { Track } from "../services/types";
-import { load, update, searchRequest } from "../store/module/music/actions";
+import { load } from "../store/module/music/actions";
 import { RootState } from "../store/module/rootReducer";
 import {
   convertResponseTrackToEntityTrack,
@@ -17,6 +17,7 @@ import { Container, ListMusic } from "../styles/index";
 import InputSearch from "../components/InputSearch";
 import { firstTrack } from "../store/module/miniplayer/actions";
 import { useEffect } from "react";
+import Toogle from "../components/Toogle";
 
 type ResponseData = {
   data: Track[];
@@ -25,12 +26,18 @@ type ResponseData = {
 const Home: NextPage<ResponseData> = () => {
   const { tracks, isLoading } = useSelector((state: RootState) => state.music);
 
+  useEffect(() => {
+    localStorage.getItem("favorites");
+  }, []);
+
   return (
     <Container>
-      <InputSearch />
-
+      <div className="container-options">
+        <InputSearch />
+        <Toogle />
+      </div>
+      
       <Header />
-
       <ListMusic>
         {isLoading ? (
           <Container>Carregando</Container>

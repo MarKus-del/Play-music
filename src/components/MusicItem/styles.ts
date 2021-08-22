@@ -20,7 +20,7 @@ export const MusicContainer = styled.li`
 `;
 
 export const InfoMusic = styled.div`
-  color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.text};
 
   grid-area: info;
   display: flex;
@@ -28,8 +28,8 @@ export const InfoMusic = styled.div`
   justify-content: space-evenly;
   padding-left: 0.5rem;
   
-  
-  span {
+
+  span:first-of-type {
     height: 2rem;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -38,6 +38,7 @@ export const InfoMusic = styled.div`
   a {
     color: ${({ theme }) => theme.colors.text};
     text-transform: capitalize;
+    text-decoration: none;
   }
 
   a:hover {
@@ -48,10 +49,10 @@ export const InfoMusic = styled.div`
 
   .more {
     cursor: pointer;
-    font-weight: 800;
-    font-size: 1.2rem;
+    font-weight: 600;
+    font-size: 1rem;
     text-decoration: none;
-    color: ${({ theme }) => theme.colors.black};
+    color: ${({ theme }) => theme.colors.text};
   }
 
   .more:hover {

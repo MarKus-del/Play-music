@@ -14,9 +14,12 @@ export const Search = styled.div`
     border: none;
     border: 2px solid ${({ theme }) => theme.colors.text};
     outline: none;
+    background-color: ${({ theme }) => theme.colors.backgroundColor};
+    color: ${({ theme }) => theme.colors.text};
+    border-color: ${({ theme }) => theme.colors.backgroundContainerMusic};
 
     &:hover {
-      border: 2px solid black;
+      border: 2px solid white;
     }
   }
 
@@ -25,16 +28,17 @@ export const Search = styled.div`
     width: 5rem;
     padding: 1rem;
     border-radius: 0 1rem 1rem 0;
-    border: 2px solid ${({ theme }) => theme.colors.text};
+    border: 2px solid ${({ theme }) => theme.colors.backgroundContainerMusic};
     cursor: pointer;
     font-size: 1.5rem;
     color: ${({ theme }) => theme.colors.detach};
+    background-color: ${({ theme }) => theme.colors.backgroundColor};
     display: flex;
     justify-content: center;
     align-items: center;
 
     &:hover {
-      border: 2px solid black;
+      border: 2px solid white;
     }
   }
 `;
