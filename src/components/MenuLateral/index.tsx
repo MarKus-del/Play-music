@@ -6,6 +6,7 @@ import {
   FooterPlay,
   Navigation,
   LinkTo,
+  ContainerLink,
 } from "./styles";
 import { BiMusic, BiPlayCircle, BiPlay, BiBookHeart, BiTargetLock } from "react-icons/bi";
 import { MdAlbum } from "react-icons/md";
@@ -16,8 +17,10 @@ import { useRef } from "react";
 import { useEffect } from "react";
 import { play, stop } from "../../store/module/miniplayer/actions";
 import { convertDuration } from "../../utils/converts";
+import { useRouter } from "next/dist/client/router";
 
 export default function MenuLateral() {
+  const { asPath } = useRouter();
   const audioRef = useRef<HTMLAudioElement>(null);
   const dispatch = useDispatch();
   const { track, isPlaying } = useSelector((state: RootState) => state.miniplayer);
@@ -48,19 +51,20 @@ export default function MenuLateral() {
       </HeaderMenu>
 
       <Navigation>
-        <div className="container-link">
+
+        <ContainerLink  isActive={asPath === '/favorites'}>
           <BiBookHeart className="icon" />
           <Link href="/favorites" passHref>
             <LinkTo>Favoritos</LinkTo>
           </Link>
-        </div>
+        </ContainerLink>
 
-        <div className="container-link">
+        <ContainerLink isActive={asPath === '/'}>
           <BiMusic className="icon" />
           <Link href="/" passHref>
             <LinkTo href="">Músicas</LinkTo>
           </Link>
-        </div>
+        </ContainerLink>
 
         {/* <div className="container-link">
           <MdAlbum className="icon" />

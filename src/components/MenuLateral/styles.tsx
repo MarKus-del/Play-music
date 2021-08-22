@@ -22,7 +22,6 @@ export const ContainerMenu = styled.aside`
 `;
 
 export const HeaderMenu = styled.header`
-
   margin-top: 1rem;
   display: flex;
   align-items: center;
@@ -58,31 +57,37 @@ export const Navigation = styled.nav`
     width: 100vw;
     flex-direction: row;
     margin-top: 0;
+  }
+`;
 
-    .container-link {
-      width: 50%;
-      justify-content: center;
-    }
-    .container-link:first-of-type {
-      border-right: 2px solid ${({ theme }) => theme.colors.text};
-    }
+type ContainerLinkProps = {
+  isActive: boolean;
+};
+
+export const ContainerLink = styled.div<ContainerLinkProps>`
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  color: ${({ theme, isActive }) =>
+    isActive ? theme.colors.detach : theme.colors.text};
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.detach};
   }
 
-  .container-link {
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    font-weight: 700;
-
-    &:hover {
-      color: ${({ theme }) => theme.colors.detach};
-    }
-  }
-
-  .container-link .icon {
+  .icon {
     margin-right: 1rem;
     font-size: 2rem;
     background-color: inherit;
+  }
+
+  @media (max-width: 1000px) {
+    width: 50%;
+    justify-content: center;
+    &:first-of-type {
+      border-right: 2px solid ${({ theme }) => theme.colors.text};
+    }
   }
 `;
 
@@ -154,6 +159,5 @@ export const FooterPlay = styled.section`
       font-size: 2rem;
       color: inherit;
     }
-  
   }
 `;
