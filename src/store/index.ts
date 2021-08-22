@@ -9,15 +9,18 @@ import { MiniPlayerActionTypes } from './module/miniplayer/types';
 import { FavoritesActionTypes } from './module/favorites/types';
 import { persistedReducers } from './module/rootPersist';
 import { PersistPartial } from 'redux-persist/es/persistReducer';
+import { themesInitialState } from './module/themes/reducer';
+import { ThemeActions } from './module/themes/types';
 
-type ActionsTypes = MusicActionTypes | MiniPlayerActionTypes | FavoritesActionTypes; 
+type ActionsTypes = MusicActionTypes | MiniPlayerActionTypes | FavoritesActionTypes | { type: ThemeActions }; 
 
 let store: Store<EmptyObject & RootState & PersistPartial, ActionsTypes> | undefined;
 
-const initialState: RootState = {
+export const initialState: RootState = {
   favorites: favoritesInitialState,
   miniplayer: miniplayerInitialState,
   music: musicInitialState,
+  themes: themesInitialState
 }
 
 function initStore(preloadedState = initialState) {

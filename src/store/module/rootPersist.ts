@@ -6,7 +6,7 @@ import { rootReducers, RootState, } from "./rootReducer";
 const persistConfig = {
   key: "favorites",
   storage,
-  whitelist: ["favorites"],
+  whitelist: ["favorites", "themes"],
 }
 
 export const persistedReducers = persistReducer(
