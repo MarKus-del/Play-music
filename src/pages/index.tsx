@@ -38,7 +38,7 @@ const Home: NextPage<ResponseData> = () => {
       <Header />
       <ListMusic>
         {isLoading ? (
-          <Container>Carregando</Container>
+          <Container className="is-loading">Carregando</Container>
         ) : (
           tracks.map((track) => <MusicItem key={track.id} track={track} />)
         )}

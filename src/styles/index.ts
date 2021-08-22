@@ -9,6 +9,11 @@ export const Container = styled.main`
   display: flex;
   flex-direction: column;
 
+  &.is-loading {
+    width: initial;
+    height: initial;
+  }
+
   @media (max-width: 1000px) {
     width: 90%;
     margin: 0 auto;
