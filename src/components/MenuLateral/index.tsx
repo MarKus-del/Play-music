@@ -8,8 +8,11 @@ import {
   LinkTo,
   ContainerLink,
 } from "./styles";
-import { BiMusic, BiPlayCircle, BiPlay, BiBookHeart, BiTargetLock } from "react-icons/bi";
-import { MdAlbum } from "react-icons/md";
+import {
+  BiMusic,
+  BiPlayCircle,
+  BiBookHeart,
+} from "react-icons/bi";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/module/rootReducer";
@@ -23,25 +26,27 @@ export default function MenuLateral() {
   const { asPath } = useRouter();
   const audioRef = useRef<HTMLAudioElement>(null);
   const dispatch = useDispatch();
-  const { track, isPlaying } = useSelector((state: RootState) => state.miniplayer);
+  const { track, isPlaying } = useSelector(
+    (state: RootState) => state.miniplayer
+  );
 
   const playTrack = () => {
     dispatch(play(track));
-  }
+  };
 
   const stopTrack = () => {
     dispatch(stop());
-  }
+  };
 
   useEffect(() => {
     if (!audioRef.current) return;
 
-    if(isPlaying) {
+    if (isPlaying) {
       audioRef.current.play();
     } else {
       audioRef.current.pause();
     }
-  }, [isPlaying])
+  }, [isPlaying]);
 
   return (
     <ContainerMenu>
@@ -51,15 +56,14 @@ export default function MenuLateral() {
       </HeaderMenu>
 
       <Navigation>
-
-        <ContainerLink  isActive={asPath === '/favorites'}>
+        <ContainerLink isActive={asPath === "/favorites"}>
           <BiBookHeart className="icon" />
           <Link href="/favorites" passHref>
             <LinkTo>Favoritos</LinkTo>
           </Link>
         </ContainerLink>
 
-        <ContainerLink isActive={asPath === '/'}>
+        <ContainerLink isActive={asPath === "/"}>
           <BiMusic className="icon" />
           <Link href="/" passHref>
             <LinkTo href="">Músicas</LinkTo>
@@ -89,13 +93,11 @@ export default function MenuLateral() {
         <div className="info">
           <span>{track.title}</span>
           <span>{track.artist.name}</span>
-          <span>
-          Duração: {convertDuration(track.duration)}
-        </span>
+          <span>Duração: {convertDuration(track.duration)}</span>
         </div>
 
         <div className="play">
-          <audio 
+          <audio
             src={track.preview}
             ref={audioRef}
             onEnded={stopTrack}
@@ -110,8 +112,7 @@ export default function MenuLateral() {
             <button onClick={playTrack}>
               <FaPlay className="icon" />
             </button>
-          )} 
-          
+          )}
         </div>
       </FooterPlay>
     </ContainerMenu>

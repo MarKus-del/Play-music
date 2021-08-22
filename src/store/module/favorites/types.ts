@@ -1,8 +1,8 @@
 import { Track } from "../../../services/types";
 
 export type FavoritesActionTypes = {
-  type: Types ;
-  payload: Payload ;
+  type: Types;
+  payload: Payload;
 };
 
 export enum Types {
@@ -11,7 +11,7 @@ export enum Types {
 }
 
 export type State = {
-favoritesTracks: Track[];
+  favoritesTracks: Track[];
 };
 
 export type Payload = {

@@ -7,9 +7,7 @@ import { initializeStore } from "../store";
 import { Track } from "../services/types";
 import { load } from "../store/module/music/actions";
 import { RootState } from "../store/module/rootReducer";
-import {
-  convertResponseTrackToEntityTrack,
-} from "../utils/converts";
+import { convertResponseTrackToEntityTrack } from "../utils/converts";
 
 import Header from "../components/Header";
 import MusicItem from "../components/MusicItem";
@@ -36,7 +34,7 @@ const Home: NextPage<ResponseData> = () => {
         <InputSearch />
         <Toogle />
       </div>
-      
+
       <Header />
       <ListMusic>
         {isLoading ? (
@@ -60,20 +58,20 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const reduxStore = initializeStore();
 
   const { dispatch } = reduxStore;
-    const { data }: AxiosResponse<DeezerApiTopTracks> = await apiNext.get(
-      `/chart/O/tracks`
-    );
+  const { data }: AxiosResponse<DeezerApiTopTracks> = await apiNext.get(
+    `/chart/O/tracks`
+  );
 
-    const topTracks: Track[] = data.data.map((track) =>
-      convertResponseTrackToEntityTrack(track)
-    );
+  const topTracks: Track[] = data.data.map((track) =>
+    convertResponseTrackToEntityTrack(track)
+  );
 
-    dispatch(load(topTracks));
-    dispatch(firstTrack(topTracks[0]));
+  dispatch(load(topTracks));
+  dispatch(firstTrack(topTracks[0]));
 
-    return {
-      props: {
-        initialReduxState: reduxStore.getState()
-      }
-    }
-}
+  return {
+    props: {
+      initialReduxState: reduxStore.getState(),
+    },
+  };
+};

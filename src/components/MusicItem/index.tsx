@@ -9,7 +9,6 @@ import {
   addFavorites,
   removeFavorites,
 } from "../../store/module/favorites/actions";
-import { useEffect } from "react";
 import { useState } from "react";
 import { convertDuration } from "../../utils/converts";
 
@@ -18,7 +17,6 @@ type MusicItemProps = {
 };
 
 export default function MusicItem({ track }: MusicItemProps) {
-  const [isFavorited, SetIsFavorited] = useState(false);
   const dispatch = useDispatch();
 
   const { isPlaying, track: trackOnMiniPlayer } = useSelector(
@@ -28,19 +26,6 @@ export default function MusicItem({ track }: MusicItemProps) {
   const { favoritesTracks } = useSelector(
     (state: RootState) => state.favorites
   );
-
-  // useEffect(() => {
-  //   console.log(favoritesTracks);
-
-  //   const alreadyWithFilter =
-  //   console.log(alreadyWithFilter);
-
-  //   if (alreadyWithFilter.length > 0) {
-  //     SetIsFavorited(true);
-  //   }
-
-  //   SetIsFavorited(false);
-  // }, [favoritesTracks, track.id]);
 
   const playTrack = () => {
     stopTrack();
@@ -80,9 +65,7 @@ export default function MusicItem({ track }: MusicItemProps) {
           </b>
         </span>
 
-        <span>
-          Duração: {convertDuration(track.duration)}
-        </span>
+        <span>Duração: {convertDuration(track.duration)}</span>
 
         <a className="more" href={track.link}>
           ver mais

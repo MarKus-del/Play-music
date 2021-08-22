@@ -1,5 +1,4 @@
 import { AxiosResponse } from "axios";
-import { ReactNode } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { apiFront } from "../../services/api";

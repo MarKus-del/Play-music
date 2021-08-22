@@ -22,7 +22,7 @@ export const Container = styled.main`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-}
+  }
 `;
 
 export const ListMusic = styled.ul`

@@ -1,10 +1,8 @@
 import { useEffect } from "react";
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useTheme } from "styled-components";
 import { RootState } from "../../store/module/rootReducer";
 import { setDarkMode, setlightMode } from "../../store/module/themes/actions";
-import { lightTheme } from "../../styles/global";
 import { Switch } from "./styles";
 
 export default function Toogle() {
@@ -14,18 +12,17 @@ export default function Toogle() {
 
   useEffect(() => {
     if (!inputRef.current) return;
-    if ( themeName === 'dark') {
+    if (themeName === "dark") {
       inputRef.current.checked = true;
     }
-  }, [themeName])
+  }, [themeName]);
 
   const handleClick = () => {
     if (!inputRef.current) return;
     console.log(inputRef.current.checked);
-    
 
     if (inputRef.current.checked) {
-        dispatch(setDarkMode());
+      dispatch(setDarkMode());
     } else {
       dispatch(setlightMode());
     }

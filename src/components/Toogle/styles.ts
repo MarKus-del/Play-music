@@ -22,7 +22,7 @@ export const Switch = styled.label`
     background-color: #ccc;
     -webkit-transition: 0.4s;
     transition: 0.4s;
-		border-radius: 34px
+    border-radius: 34px;
   }
 
   span:before {
@@ -35,7 +35,7 @@ export const Switch = styled.label`
     background-color: ${({ theme }) => theme.colors.text};
     -webkit-transition: 0.4s;
     transition: 0.4s;
-		border-radius: 50%;
+    border-radius: 50%;
   }
 
   input:checked + span {

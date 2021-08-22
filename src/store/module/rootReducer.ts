@@ -8,7 +8,7 @@ export const rootReducers = combineReducers({
   music,
   miniplayer,
   favorites,
-  themes
+  themes,
 });
 
 export type RootState = ReturnType<typeof rootReducers>;

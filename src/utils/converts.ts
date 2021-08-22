@@ -1,4 +1,3 @@
-import { AxiosResponse } from "axios";
 import { Album, Artist, Track } from "../services/types";
 
 type RequestSearchDeezer = {
@@ -9,7 +8,7 @@ type RequestSearchDeezer = {
 };
 
 export function convertDuration(duration: number): string {
-  const seconds = (duration % 60);
+  const seconds = duration % 60;
   const minutes = Math.floor(duration / 60);
   return `${minutes}:${seconds}`;
 }
@@ -63,5 +62,3 @@ export function convertResponseAlbumToEntityAlbum(responseAlbum: Album): Album {
     tracklist: responseAlbum.tracklist,
   };
 }
-
-

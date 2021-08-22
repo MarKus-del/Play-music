@@ -1,11 +1,11 @@
-import { DefaultTheme } from "styled-components"
+import { DefaultTheme } from "styled-components";
 
 export enum ThemeActions {
-    DARK = "theme/DARK",
-    LIGHT ="theme/LIGHT",
+  DARK = "theme/DARK",
+  LIGHT = "theme/LIGHT",
 }
 
 export type ThemeState = {
-    themeName: string;
-    theme: DefaultTheme;
-}
+  themeName: string;
+  theme: DefaultTheme;
+};

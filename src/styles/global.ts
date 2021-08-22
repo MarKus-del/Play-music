@@ -31,7 +31,7 @@ export const lightTheme: DefaultTheme = {
     playMusic: "#55efc4",
     playDisable: "#00b894",
     borderColor: "#C4C4C4",
-    linkHover: "#551A8B"
+    linkHover: "#551A8B",
   },
   breakpoints: {
     small: "780",
@@ -51,7 +51,7 @@ export const darkTheme: DefaultTheme = {
     playMusic: "#55efc4",
     playDisable: "#00b894",
     borderColor: "#000000",
-    linkHover: "#551A8B"
+    linkHover: "#551A8B",
   },
   breakpoints: {
     small: "780",
@@ -60,4 +60,3 @@ export const darkTheme: DefaultTheme = {
   },
   fontSize: "16px",
 };
-

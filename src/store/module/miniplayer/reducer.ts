@@ -17,14 +17,18 @@ export const miniplayerInitialState: State = {
       name: "Nome do Compositor",
       id: 0,
       link: "",
-      picture: "https://cdn.pixabay.com/photo/2017/03/09/12/31/error-2129569_960_720.jpg",
+      picture:
+        "https://cdn.pixabay.com/photo/2017/03/09/12/31/error-2129569_960_720.jpg",
       tracklist: "",
     },
   },
   isPlaying: false,
 };
 
-export default function reducer(state = miniplayerInitialState, action: MiniPlayerActionTypes) {
+export default function reducer(
+  state = miniplayerInitialState,
+  action: MiniPlayerActionTypes
+) {
   switch (action.type) {
     case Types.LOAD: {
       const { track } = action.payload;

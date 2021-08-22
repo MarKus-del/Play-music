@@ -15,14 +15,14 @@ export default async function handleSearch(
   res: NextApiResponse<RequestSearchDeezer>
 ) {
   const { name, index } = req.query;
-  
+
   const { data }: AxiosResponse<RequestSearchDeezer> = await apiNext.get(
     `https://api.deezer.com/search/track`,
     {
       params: {
         q: name,
         limit: 10,
-        index: +index
+        index: +index,
       },
     }
   );

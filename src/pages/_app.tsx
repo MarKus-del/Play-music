@@ -1,8 +1,7 @@
 import type { AppProps } from "next/app";
-import { Provider, useSelector } from "react-redux";
-import { ThemeProvider } from "styled-components";
+import { Provider } from "react-redux";
 import MenuLateral from "../components/MenuLateral";
-import { GlobalStyles, lightTheme, darkTheme } from "../styles/global";
+import { GlobalStyles } from "../styles/global";
 import { useStore } from "../store";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";

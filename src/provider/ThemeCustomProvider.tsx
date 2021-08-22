@@ -4,14 +4,12 @@ import { ThemeProvider } from "styled-components";
 import { RootState } from "../store/module/rootReducer";
 
 type ThemeCustomProviderProps = {
-    children: ReactNode
-}
+  children: ReactNode;
+};
 
-export default function ThemeCustomProvider({ children }: ThemeCustomProviderProps) {
-    const { theme } = useSelector((state: RootState) => state.themes)
-    return (
-        <ThemeProvider theme={theme}>
-            {children}
-        </ThemeProvider>
-    );
+export default function ThemeCustomProvider({
+  children,
+}: ThemeCustomProviderProps) {
+  const { theme } = useSelector((state: RootState) => state.themes);
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 }

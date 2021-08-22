@@ -1,13 +1,13 @@
-import { ThemeActions } from './types'
+import { ThemeActions } from "./types";
 
 export const setDarkMode = () => {
-    return {
-        type: ThemeActions.DARK
-    }
-}
+  return {
+    type: ThemeActions.DARK,
+  };
+};
 
 export const setlightMode = () => {
-    return {
-        type: ThemeActions.LIGHT
-    }
-}
+  return {
+    type: ThemeActions.LIGHT,
+  };
+};

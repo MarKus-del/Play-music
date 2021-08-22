@@ -52,7 +52,7 @@ export const PaginationButton = styled.div`
     &:not(:disabled):hover {
       font-size: 1rem;
       background-color: ${({ theme }) => theme.colors.text};
-      color: ${({ theme }) => theme.colors.white};
+      color: ${({ theme }) => theme.colors.backgroundColor};
     }
   }
 

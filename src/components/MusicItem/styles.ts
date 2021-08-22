@@ -15,8 +15,6 @@ export const MusicContainer = styled.li`
     background-color: red;
     border-radius: 1rem 0 0 1rem;
   }
-
-  
 `;
 
 export const InfoMusic = styled.div`
@@ -27,7 +25,6 @@ export const InfoMusic = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   padding-left: 0.5rem;
-  
 
   span:first-of-type {
     height: 2rem;
@@ -85,7 +82,7 @@ export const FeaturesBox = styled.div`
   .is-playing {
     color: ${({ theme }) => theme.colors.playMusic};
   }
-  
+
   .deslike {
     color: ${({ theme }) => theme.colors.playMusic};
 
@@ -93,5 +90,4 @@ export const FeaturesBox = styled.div`
       color: ${({ theme }) => theme.colors.playDisable};
     }
   }
-
 `;
