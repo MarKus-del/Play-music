@@ -5,13 +5,14 @@ declare module 'styled-components' {
     colors : {
         detach: string,
         text: string,
-        white: string,
+        backgroundColor: string,
         black: string,
         backgroundContainerMusic: string,
         playMusic: string,
         playDisable: string,
         borderColor: string,
         linkHover: string;
+
       },
       breakpoints: {
         small: string,
