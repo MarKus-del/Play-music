@@ -1,9 +1,8 @@
-import { HYDRATE } from "next-redux-wrapper";
 import { Track } from "../../../services/types";
 
 export type FavoritesActionTypes = {
-  type: Types | typeof HYDRATE;
-  payload: Payload & HydratePayload;
+  type: Types ;
+  payload: Payload ;
 };
 
 export enum Types {
