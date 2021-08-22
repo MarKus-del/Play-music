@@ -8,6 +8,13 @@ export const Container = styled.main`
   height: 100vh;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 1000px) {
+    width: 90%;
+    margin: 0 auto;
+    max-height: 75vh;
+    overflow-y: scroll;
+  }
 `;
 
 export const ListMusic = styled.ul`
@@ -17,4 +24,10 @@ export const ListMusic = styled.ul`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(5, 1fr);
   grid-gap: 1rem;
+
+  @media (max-width: 900px) {
+    max-height: 60vh;
+
+    grid-template-columns: 1fr;
+  }
 `;

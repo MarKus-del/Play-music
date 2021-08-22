@@ -15,6 +15,8 @@ export const MusicContainer = styled.li`
     background-color: red;
     border-radius: 1rem 0 0 1rem;
   }
+
+  
 `;
 
 export const InfoMusic = styled.div`

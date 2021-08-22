@@ -8,7 +8,17 @@ export const ContainerMenu = styled.aside`
   background-color: "#636e72";
   display: flex;
   flex-direction: column;
-  position: fixed;
+  position: absolute;
+  z-index: 1;
+
+  @media (max-width: 1000px) {
+    border-right: none;
+    max-height: 500px;
+    max-width: 100vw;
+    width: 100vw;
+    flex-direction: column-reverse;
+    bottom: 0;
+  }
 `;
 
 export const HeaderMenu = styled.header`
@@ -18,6 +28,10 @@ export const HeaderMenu = styled.header`
   align-items: center;
   justify-content: center;
   color: ${({ theme }) => theme.colors.detach};
+
+  @media (max-width: 1000px) {
+    display: none;
+  }
 
   h1 {
     font-size: 2rem;
@@ -38,6 +52,21 @@ export const Navigation = styled.nav`
 
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 1000px) {
+    border-top: 2px solid ${({ theme }) => theme.colors.text};
+    width: 100vw;
+    flex-direction: row;
+    margin-top: 0;
+
+    .container-link {
+      width: 50%;
+      justify-content: center;
+    }
+    .container-link:first-of-type {
+      border-right: 2px solid ${({ theme }) => theme.colors.text};
+    }
+  }
 
   .container-link {
     padding: 1rem;
@@ -73,6 +102,16 @@ export const FooterPlay = styled.section`
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-areas: "photo info info play";
+
+  @media (max-width: 1000px) {
+    max-width: 100vw;
+    position: relative;
+    grid-template-columns: 1fr 2fr 3fr;
+
+    .photo {
+      max-height: 80%;
+    }
+  }
 
   .photo {
     grid-area: "photo";
@@ -115,5 +154,6 @@ export const FooterPlay = styled.section`
       font-size: 2rem;
       color: inherit;
     }
+  
   }
 `;
