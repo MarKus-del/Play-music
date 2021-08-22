@@ -1,4 +1,4 @@
-import { NextPage } from "next";
+import { GetServerSideProps, GetStaticProps, NextPage } from "next";
 import { AxiosResponse } from "axios";
 import { useSelector } from "react-redux";
 
@@ -16,6 +16,7 @@ import MusicItem from "../components/MusicItem";
 import { Container, ListMusic } from "../styles/index";
 import InputSearch from "../components/InputSearch";
 import { firstTrack } from "../store/module/miniplayer/actions";
+import { useEffect } from "react";
 
 type ResponseData = {
   data: Track[];
@@ -23,6 +24,7 @@ type ResponseData = {
 
 const Home: NextPage<ResponseData> = () => {
   const { tracks, isLoading } = useSelector((state: RootState) => state.music);
+
   return (
     <Container>
       <InputSearch />
@@ -47,7 +49,7 @@ type DeezerApiTopTracks = {
   total: number;
 };
 
-export const getServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const reduxStore = initializeStore();
 
   const { dispatch } = reduxStore;
