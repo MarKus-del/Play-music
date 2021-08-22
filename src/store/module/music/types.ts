@@ -3,7 +3,7 @@ import { Track } from "../../../services/types";
 
 export type MusicActionTypes = {
   type: Types;
-  payload: Payload | { tracks: Track[] };
+  payload: Payload;
 };
 
 export enum Types {

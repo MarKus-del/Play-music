@@ -1,12 +1,9 @@
-import { Track } from "../../../services/types";
-import { MusicActionTypes, Payload, Types } from "./types";
+import { Payload, Types } from "./types";
 
-export const load = (tracks: Track[]) => {
+export const load = (payloadRequest: Payload) => {
   return {
     type: Types.LOAD,
-    payload: {
-      tracks,
-    },
+    payload: payloadRequest,
   };
 };
 

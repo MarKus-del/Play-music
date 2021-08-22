@@ -66,7 +66,14 @@ export const getServerSideProps: GetServerSideProps = async () => {
     convertResponseTrackToEntityTrack(track)
   );
 
-  dispatch(load(topTracks));
+  dispatch(
+    load({
+      tracks: topTracks,
+      currentPage: 1,
+      totalPageList: 1,
+      searchName: "Top Musicas",
+    })
+  );
   dispatch(firstTrack(topTracks[0]));
 
   return {
